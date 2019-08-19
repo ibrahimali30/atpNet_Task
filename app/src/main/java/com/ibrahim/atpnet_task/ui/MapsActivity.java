@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
@@ -14,7 +13,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -43,7 +41,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mViewModel = ViewModelProviders.of(this).get(MapsViewModel.class);
 
-        mViewModel.getMetroStationLiveData().observe(this, new Observer<List<MetroStation>>() {
+        mViewModel.getMetroStationsLiveData().observe(this, new Observer<List<MetroStation>>() {
             @Override
             public void onChanged(List<MetroStation> metroStations) {
                 Log.d(TAG, "onChanged: "+metroStations);

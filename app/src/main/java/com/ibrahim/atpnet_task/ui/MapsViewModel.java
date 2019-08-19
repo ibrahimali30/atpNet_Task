@@ -13,16 +13,17 @@ import java.util.List;
 
 public class MapsViewModel extends AndroidViewModel {
     private static final String TAG = "MapsViewModel";
+
     private MetroStationRepository mRepository;
-    private MutableLiveData<List<MetroStation>> mMetroStationLiveData;
+    private MutableLiveData<List<MetroStation>> mMetroStationsLiveData;
 
     public MapsViewModel(@NonNull Application application) {
         super(application);
-        mRepository = new MetroStationRepository();
-        mMetroStationLiveData = mRepository.getMetroStations();
+        mRepository = new MetroStationRepository(application);
+        mMetroStationsLiveData = mRepository.getMetroStations();
     }
 
-    public MutableLiveData<List<MetroStation>> getMetroStationLiveData() {
-        return mMetroStationLiveData;
+    public MutableLiveData<List<MetroStation>> getMetroStationsLiveData() {
+        return mMetroStationsLiveData;
     }
 }
